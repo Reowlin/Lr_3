@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- ************************************************************************************** -->
+    <bean id="Melee" class="springhw.beans.Characters" factory-method="getCharacters"  scope="prototype">
+        <constructor-arg name="role" value="Melee"/>
+    </bean>
+    <bean id="Range" class="springhw.beans.Characters" factory-method="getCharacters" scope="prototype">
+        <constructor-arg name="role" value="Range"/>
+    </bean>
+
+    <bean id="Tank" class="springhw.beans.Characters" factory-method="getCharacters" scope="prototype">
+        <constructor-arg name="role" value="Tank"/>
+    </bean>
+
+    <bean id="Parser" class="springhw.Parser">
+    </bean>
+</beans>

@@ -55,7 +55,7 @@ public class Menu {
             }
         } while (choose != 4);
     }
-    public static void  first_menu (ArrayList<Characters[]> arrayList)
+    public static void  first_menu (ArrayList<Characters[]> arrayList, ArrayList<String> FileName)
     {
         int choose;
         do {
@@ -74,6 +74,8 @@ public class Menu {
             } while (choose < 1 || choose > 3);
             if (choose == 1) {
                 for (int i = 0; i < arrayList.size(); i++) {
+                    System.out.println("Position "+(i+1)+":");
+                    System.out.println("---"+ FileName.get(i) +"---");
                     Printer.print_all(arrayList.get(i));
                 }
             }

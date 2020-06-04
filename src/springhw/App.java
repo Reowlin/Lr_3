@@ -15,14 +15,15 @@ public class App {
         System.out.print("Enter the path to the files: ");
         String path = in.next();
         String[] Names = FileList.ReadName(path);
+        ArrayList<String> GoNames = new ArrayList<>();
         ArrayList<Characters[]> arrayList = new ArrayList<>();
         //Characters[][] bob;
         for(int i = 0;i< Names.length; i++){
-                ParserThread myThread = new ParserThread(Names[i],arrayList);
+                ParserThread myThread = new ParserThread(Names[i],arrayList, GoNames);
                 myThread.start();
         }
         Thread.sleep(1000);
-        Menu.first_menu(arrayList);
+        Menu.first_menu(arrayList,GoNames);
     }
 
 }

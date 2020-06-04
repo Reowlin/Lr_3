@@ -3,18 +3,21 @@ package springhw;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import springhw.beans.Characters;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.concurrent.Callable;
+import java.util.concurrent.Semaphore;
 
 
 public class ParserThread extends Thread {
     public String FileName;
     public ArrayList<Characters[]> arrayList;
+    public ArrayList<String> GoNames;
+    Semaphore sem = new Semaphore(1);
 
-    public ParserThread(String FileName, ArrayList<Characters[]> arrayList) {
+    public ParserThread(String FileName, ArrayList<Characters[]> arrayList, ArrayList<String> GoNames) {
         this.arrayList = arrayList;
         this.FileName = FileName;
+        this.GoNames = GoNames;
+        this.sem = sem;
     }
 
     /*@Override
@@ -28,7 +31,6 @@ public class ParserThread extends Thread {
         return data;
     }*/
 
-
     public void run()
     {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("resources/applicationContext.xml");
@@ -37,7 +39,15 @@ public class ParserThread extends Thread {
         parser.setFilename(FileName);
         Characters[] data = parser.parse();
         //Printer.print_all(data);
-        arrayList.add(data);
-        System.out.println(FileName+" done");
+        try {
+            sem.acquire();
+            GoNames.add(FileName);
+            arrayList.add(data);
+            System.out.println(FileName + " done");
+            //Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //sem.release();
     }
 }

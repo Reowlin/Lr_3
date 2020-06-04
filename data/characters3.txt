@@ -1,0 +1,2 @@
+type: tank name: Orisa
+type: range name: Sombra

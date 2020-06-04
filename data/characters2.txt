@@ -1,0 +1,3 @@
+type: tank name: NePudge
+type: range name: WR
+type: tank name: Misha

@@ -1,20 +1,22 @@
 package springhw;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import springhw.beans.*;
-import springhw.*;
+import springhw.component.FileList;
+import springhw.component.Menu;
+import springhw.component.ParserThread;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.Semaphore;
 
 
+
 public class App {
     public static void main(String[] args) throws InterruptedException {
-        Semaphore sem = new Semaphore(1);
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the path to the files: ");
         String path = in.next();
+        Semaphore sem = new Semaphore(1);
         String[] Names = FileList.ReadName(path);
         ArrayList<String> GoNames = new ArrayList<>();
         ArrayList<Characters[]> arrayList = new ArrayList<>();

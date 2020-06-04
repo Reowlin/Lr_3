@@ -1,4 +1,4 @@
-package springhw;
+package springhw.component;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import springhw.beans.Characters;

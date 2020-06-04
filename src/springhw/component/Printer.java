@@ -1,4 +1,4 @@
-package springhw;
+package springhw.component;
 
 import springhw.beans.Characters;
 

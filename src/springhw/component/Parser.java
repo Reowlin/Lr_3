@@ -1,4 +1,4 @@
-package springhw;
+package springhw.component;
 import java.io.*;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;

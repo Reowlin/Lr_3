@@ -11,9 +11,9 @@ public class ParserThread extends Thread {
     public String FileName;
     public ArrayList<Characters[]> arrayList;
     public ArrayList<String> GoNames;
-    Semaphore sem = new Semaphore(1);
+    Semaphore sem;
 
-    public ParserThread(String FileName, ArrayList<Characters[]> arrayList, ArrayList<String> GoNames) {
+    public ParserThread(String FileName, ArrayList<Characters[]> arrayList, ArrayList<String> GoNames, Semaphore sem) {
         this.arrayList = arrayList;
         this.FileName = FileName;
         this.GoNames = GoNames;
@@ -48,6 +48,6 @@ public class ParserThread extends Thread {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //sem.release();
+        sem.release();
     }
 }

@@ -61,7 +61,8 @@ public class Menu {
         do {
             System.out.println("| All objects in the files  - 1|");
             System.out.println("| Select a group of objects - 2|");
-            System.out.println("|           Exit            - 3|");
+            System.out.println("|     Number of objects     - 3|");
+            System.out.println("|           Exit            - 4|");
             do {
                 System.out.print("> ");
                 try {
@@ -71,7 +72,7 @@ public class Menu {
                     //System.out.println("Please enter the number that corresponds to the menu item");
                     choose = 0;
                 }
-            } while (choose < 1 || choose > 3);
+            } while (choose < 1 || choose > 4);
             if (choose == 1) {
                 for (int i = 0; i < arrayList.size(); i++) {
                     System.out.println("Position "+(i+1)+":");
@@ -84,8 +85,11 @@ public class Menu {
                 second_menu(arrayList.get(amr-1));
             }
             if (choose == 3) {
+                Counter.countAll(arrayList);
+            }
+            if (choose == 4) {
                 System.out.println("Close the program");
             }
-        } while (choose != 3);
+        } while (choose != 4);
     }
 }

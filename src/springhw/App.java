@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 
 public class App {
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         Scanner in = new Scanner(System.in);
         System.out.print("Enter the path to the files: ");
         String path = in.next();
@@ -19,8 +19,8 @@ public class App {
         ArrayList<Characters[]> arrayList = new ArrayList<>();
         //Characters[][] bob;
         for(int i = 0;i< Names.length; i++){
-                ParserThread myThread = new ParserThread(Names[i],arrayList, GoNames);
-                myThread.start();
+            ParserThread myThread = new ParserThread(Names[i],arrayList, GoNames);
+            myThread.start();
         }
         Thread.sleep(1000);
         Menu.first_menu(arrayList,GoNames);
